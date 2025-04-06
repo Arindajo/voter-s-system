@@ -1,23 +1,33 @@
-//import stanard library
+//import standard library
 use std::io;
-
 fn main(){
+    loop{
     //prompt user to enter age
-    println!("Please enter your age");
-
+    println!("Enter your age");
     let mut age_input = String::new();
-    //read age entered
+    //read age 
     io::stdin()
      .read_line(&mut age_input)
-     .expect("failed to read line");
-
-    //parse and trials
-    let age:u32 = match age_input.trim().parse(){
-        Ok(age)=> age,
+     .expect("Failed to read line");
+    //parse and trim
+    let age:u32 = match  age_input.trim().parse(){
+        Ok(age)=>age,
         Err(_)=>{
-            println!("Please enter valid age");
-            return;
+println!("enter valid age");
+continue;
         }
     };
-println!("You are {} years old",age);
+    if age>30{
+        println!("you are of age");
+
+    }
+    else if age<20{
+        println!("still young");
+    }
+    else{
+        println!("Ahh so you are in your twenties");
+    }
+    break;
+
+}
 }
